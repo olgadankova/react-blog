@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { routes } from "./router";
+import { ROUTE } from "./router";
 import { MainTemplate } from "../components/MainTemplate/MainTemplate";
 import {
   Content,
@@ -15,13 +15,13 @@ export const AppRouter = () => {
   return (
     <div>
       <Routes>
-        <Route path={routes.HOME} element={<MainTemplate />}>
+        <Route path={ROUTE.HOME} element={<MainTemplate />}>
           <Route index element={<Home />} />
-          <Route path={routes.SIGN_IN} element={<SignIn />} />
-          <Route path={routes.SIGN_IN} element={<SignUp />} />
-          <Route path={routes.CONTENT} element={<Content />} />
-          <Route path={routes.SEARCH} element={<Search />} />
-          <Route path={routes.NOT_FOUND} element={<NotFound />} />
+          <Route path={ROUTE.SIGN_IN} element={<SignIn />} />
+          <Route path={ROUTE.SIGN_UP} element={<SignUp />} />
+          <Route path={ROUTE.CONTENT} element={<Content />} />
+          <Route path={ROUTE.SEARCH} element={<Search />} />
+          <Route path={ROUTE.NOT_FOUND} element={<NotFound />} />
         </Route>
       </Routes>
     </div>

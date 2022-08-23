@@ -1,0 +1,11 @@
+export enum COLOR {
+  RED = "FD3419",
+  WHITE = "FFFFFF",
+  GRAY = "868795",
+  DARK = "2D2C33",
+  PURPLE = "912EF2",
+  VIOLET = "6C1BDB",
+  LIGHT_GRAY = "F3F3F3",
+  EXTRA_GRAY = "F1F1F1",
+  MEDIUM_GRAY = "2D2D32",
+}
