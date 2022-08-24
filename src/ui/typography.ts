@@ -1,12 +1,13 @@
 import { css } from "styled-components";
+import { media } from "./media";
 
 const H1 = css`
   font-weight: 700;
-  @media (max-width: 568px) {
+  ${media.PHONE} {
     font-size: 32px;
     line-height: 48px;
   }
-  @media (max-width: 1280px) {
+  ${media.LAPTOP} {
     font-size: 56px;
     line-height: 80px;
   }
@@ -14,11 +15,11 @@ const H1 = css`
 
 const H2 = css`
   font-weight: 700;
-  @media (max-width: 568px) {
+  ${media.PHONE} {
     font-size: 24px;
     line-height: 36px;
   }
-  @media (max-width: 1280px) {
+  ${media.LAPTOP} {
     font-size: 32px;
     line-height: 44px;
   }
