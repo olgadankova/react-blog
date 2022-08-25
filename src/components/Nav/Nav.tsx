@@ -1,7 +1,6 @@
 import React from "react";
 import { ReactComponent as Logo } from "../../assets/Logo.svg";
-import { Home, SignIn } from "../../pages";
-import { Search } from "../../pages/Search";
+import { Home } from "../../pages";
 import { StyledNav } from "./styles";
 
 export const Nav = () => {
@@ -9,8 +8,6 @@ export const Nav = () => {
     <StyledNav>
       <Logo />
       <Home />
-      <Search />
-      <SignIn />
     </StyledNav>
   );
 };
