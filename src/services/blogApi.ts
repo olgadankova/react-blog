@@ -2,8 +2,8 @@ import axios from "axios";
 import { IArticle, IBlog } from "../types";
 
 enum BlogEndpoint {
-  ARTICLE = "articles/",
-  BLOG = "blogs/",
+  ARTICLE = "articles",
+  BLOG = "blogs",
 }
 
 class BlogAPI {
