@@ -16,4 +16,3 @@ body {
   font-family: 'Inter', sans-serif;
 }
 `;
-export default GlobalStyles;

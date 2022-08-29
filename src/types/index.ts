@@ -1,4 +1,4 @@
-export interface IArticle extends IPost {
+export interface IPost {
   id: number;
   title: string;
   url: string;
@@ -7,7 +7,15 @@ export interface IArticle extends IPost {
   summary: string;
   publishedAt: string;
   updatedAt: string;
+}
+
+export interface IArticle extends IPost {
   featured: boolean;
+  launches: ILaunch[];
+  events: IEvent[];
+}
+
+export interface IBlog extends IPost {
   launches: ILaunch[];
   events: IEvent[];
 }
@@ -22,21 +30,7 @@ export interface IEvent {
   provider?: string;
 }
 
-export interface IPost {
-  someField: string;
-}
-
-// TODO протипизировать блог
-// TODO вынести общие поля для IBlog и IArticle в отдельный интерфейс и унаследоваться от него
-export interface IBlog {
-  id: number;
-  title: string;
-  url: string;
-  imageUrl: string;
-  newsSite: string;
-  summary: string;
-  publishedAt: string;
-  updatedAt: string;
+export interface IBlog extends IPost {
   launches: ILaunch[];
   events: IEvent[];
 }
