@@ -3,10 +3,6 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { App } from "./App";
 
-export const index = () => {
-  return <div>index</div>;
-};
-
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
