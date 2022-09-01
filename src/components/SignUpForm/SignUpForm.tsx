@@ -1,8 +1,8 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import PulseLoader from "react-spinners/PulseLoader";
 import { ROUTE } from "../../router/routes";
-import ClimbingBoxLoader from "react-spinners/ClipLoader";
 import { getFirebaseMessageError } from "../../utils/firebase-error";
 import {
   ErrorMessage,
@@ -81,7 +81,7 @@ export const SignUpForm = () => {
       )}
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       <SignUpButton type="submit">
-        {isLoading ? <ClimbingBoxLoader /> : "Sign Up"}
+        {isLoading ? <PulseLoader color="#ffffff" size={11} /> : "Sign Up"}
       </SignUpButton>
       <SignUpText>
         I already have an account{" "}

@@ -4,9 +4,9 @@ import { COLOR, typography } from "../../ui";
 
 export const StyledSignUp = styled.div`
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
 `;
 export const SignUpTitle = styled.h2`
   ${typography.H2}
