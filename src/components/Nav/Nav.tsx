@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { Logo } from "../../assets";
-import { Loupe } from "../../assets";
+import { SearchInput } from "../SearchInput/SearchInput";
 import { ROUTE } from "../../router/routes";
-import { StyledNav } from "./styles";
+import { AuthLink, StyledNav } from "./styles";
 
 export const Nav = () => {
   return (
@@ -10,9 +10,9 @@ export const Nav = () => {
       <Link to={ROUTE.HOME}>
         <Logo />
       </Link>
-      <Loupe />
-      <Link to={ROUTE.SIGN_UP}>Sign Up</Link>
-      <Link to={ROUTE.SIGN_IN}>Sign In</Link>
+      <SearchInput />
+      <AuthLink to={ROUTE.SIGN_UP}>Sign Up</AuthLink>
+      <AuthLink to={ROUTE.SIGN_IN}>Sign In</AuthLink>
     </StyledNav>
   );
 };

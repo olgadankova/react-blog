@@ -1,7 +1,7 @@
 import axios from "axios";
 import { IArticle, IBlog } from "../types";
 
-enum BlogEndpoint {
+export enum BlogEndpoint {
   ARTICLE = "/articles",
   BLOG = "/blogs",
 }

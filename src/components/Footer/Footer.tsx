@@ -1,5 +1,6 @@
 import React from "react";
+import { StyledFooter } from "./styles";
 
 export const Footer = () => {
-  return <div>©2022 Blogologo</div>;
+  return <StyledFooter>©2022 Blogologo</StyledFooter>;
 };
