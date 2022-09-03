@@ -15,6 +15,7 @@ import {
 } from "./styles";
 
 type SignUpFormValues = {
+  name: string;
   email: string;
   password: string;
 };
