@@ -5,4 +5,5 @@ export enum ROUTE {
   SIGN_IN = "/sign-in",
   SIGN_UP = "/sign-up",
   NOT_FOUND = "*",
+  REGISTRATION = "/registration",
 }
