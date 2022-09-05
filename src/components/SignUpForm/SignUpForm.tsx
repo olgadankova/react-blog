@@ -4,6 +4,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import PulseLoader from "react-spinners/PulseLoader";
 import { ROUTE } from "../../router/routes";
 import { getFirebaseMessageError } from "../../utils/firebase-error";
+import { ModalWindow } from "../ModalWindow/ModalWindow";
 import {
   ErrorMessage,
   SignUpButton,
@@ -32,6 +33,11 @@ export const SignUpForm = () => {
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isOpen, toggleModal] = useState<boolean>(false);
+
+  const handleModal = () => {
+    toggleModal((isOpen) => !isOpen);
+  };
 
   const onSubmit: SubmitHandler<SignUpFormValues> = ({ email, password }) => {
     setIsLoading(true);
@@ -40,6 +46,7 @@ export const SignUpForm = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // const user = userCredential.user;
+        handleModal();
       })
       .catch((error) => {
         setErrorMessage(getFirebaseMessageError(error.code));
@@ -88,6 +95,7 @@ export const SignUpForm = () => {
         I already have an account{" "}
         <SignUpLink to={ROUTE.SIGN_IN}>Sign In</SignUpLink>
       </SignUpText>
+      <ModalWindow isOpen={isOpen} handleModal={handleModal} />
     </SignUpFormStyled>
   );
 };

@@ -1,4 +1,4 @@
-export interface IPost {
+export interface IArticle {
   id: number;
   title: string;
   url: string;
@@ -7,15 +7,20 @@ export interface IPost {
   summary: string;
   publishedAt: string;
   updatedAt: string;
-}
-
-export interface IArticle extends IPost {
   featured: boolean;
   launches: ILaunch[];
   events: IEvent[];
 }
 
-export interface IBlog extends IPost {
+export interface IBlog {
+  id: number;
+  title: string;
+  url: string;
+  imageUrl: string;
+  newsSite: string;
+  summary: string;
+  publishedAt: string;
+  updatedAt: string;
   launches: ILaunch[];
   events: IEvent[];
 }
@@ -26,11 +31,11 @@ export interface ILaunch {
 }
 
 export interface IEvent {
-  id?: string | number;
+  id: string | number;
   provider?: string;
 }
 
-export interface IBlog extends IPost {
-  launches: ILaunch[];
-  events: IEvent[];
-}
+export type RequestQueryParams = {
+  limit: string;
+  page: string;
+};
