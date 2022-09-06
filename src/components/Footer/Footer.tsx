@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <StyledFooter>
       <ExpDate>©2022 Blogolog</ExpDate>
-      <FooterToggle>Dark theme</FooterToggle>
+      <FooterToggle>Light theme</FooterToggle>
     </StyledFooter>
   );
 };
