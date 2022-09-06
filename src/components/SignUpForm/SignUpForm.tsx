@@ -1,6 +1,7 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import PulseLoader from "react-spinners/PulseLoader";
 import { ROUTE } from "../../router/routes";
 import { getFirebaseMessageError } from "../../utils/firebase-error";
@@ -82,7 +83,7 @@ export const SignUpForm = () => {
             },
           })}
         />
-        Forgot password?
+        <Link to={ROUTE.RESET_PASSWORD}>Forgot password?</Link>
       </SignUpLabel>
       {errors.password && (
         <ErrorMessage>{errors.password.message}</ErrorMessage>

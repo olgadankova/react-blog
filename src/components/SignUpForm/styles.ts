@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { media, typography } from "../../ui";
 import { COLOR } from "../../ui/color";
@@ -65,9 +65,7 @@ export const ErrorMessage = styled.span`
   color: ${COLOR.RED};
 `;
 
-export const SignUpLink = styled(NavLink)`
+export const SignUpLink = styled(Link)`
   padding: 6px;
-
-  text-decoration: none;
   color: ${COLOR.VIOLET};
 `;

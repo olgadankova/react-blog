@@ -1,10 +1,18 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+const StyledMainTemplate = styled.div`
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+`;
+
+const Container = styled.div`
+  max-width: 1120px;
   margin: 0 auto;
 `;
-export const Footer = styled.div`
-  height: 92px;
+
+const Main = styled.div`
+  flex-grow: 1;
 `;
+
+export { Main, StyledMainTemplate, Container };

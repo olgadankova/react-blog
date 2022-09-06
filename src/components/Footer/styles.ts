@@ -1,9 +1,20 @@
 import styled from "styled-components";
-import { COLOR } from "../../ui";
+import { COLOR, typography } from "../../ui";
 
-export const StyledFooter = styled.h2`
+export const StyledFooter = styled.div`
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid ${COLOR.GREY};
-  color: rgba(49, 48, 55, 0.5);
+  max-width: 1120px;
+  margin: 0 auto;
+  /* border-top: 1px solid ${COLOR.GREY}; */
+`;
+
+export const ExpDate = styled.h3`
+  ${typography.S1};
+  color: ${COLOR.MEDIUM_GREY};
+`;
+
+export const FooterToggle = styled.h3`
+  ${typography.S1};
+  color: ${COLOR.MEDIUM_GREY};
 `;

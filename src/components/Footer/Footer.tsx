@@ -1,6 +1,11 @@
 import React from "react";
-import { StyledFooter } from "./styles";
+import { StyledFooter, ExpDate, FooterToggle } from "./styles";
 
 export const Footer = () => {
-  return <StyledFooter>©2022 Blogologo</StyledFooter>;
+  return (
+    <StyledFooter>
+      <ExpDate>©2022 Blogolog</ExpDate>
+      <FooterToggle>Dark theme</FooterToggle>
+    </StyledFooter>
+  );
 };
