@@ -1,9 +1,9 @@
 import React from "react";
 import { ArrowBack } from "../../components/ArrowBack/ArrowBack";
+import { Footer } from "../../components/Footer/Footer";
 import { Nav } from "../../components/Nav/Nav";
 import { SignInForm } from "../../components/SignInForm/SignInForm";
-import { ROUTE } from "../../router/routes";
-import { StyledSignUp, SignUpTitle, LinkToSignUp } from "../SignUp/styles";
+import { StyledSignUp, SignUpTitle } from "../SignUp/styles";
 
 export const SignIn = () => {
   return (
@@ -11,11 +11,11 @@ export const SignIn = () => {
       <Nav />
       <ArrowBack />
       <StyledSignUp>
-        <SignUpTitle>Back to Home!</SignUpTitle>
+        <SignUpTitle>Welcome to Home!</SignUpTitle>
         <SignUpTitle>Sign In</SignUpTitle>
-        <LinkToSignUp to={ROUTE.SIGN_UP}>I don't have an account.</LinkToSignUp>
         <SignInForm />
       </StyledSignUp>
+      <Footer />
     </>
   );
 };

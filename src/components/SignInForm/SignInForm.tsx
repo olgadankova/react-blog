@@ -1,53 +1,45 @@
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import PulseLoader from "react-spinners/PulseLoader";
 import { ROUTE } from "../../router/routes";
+import PulseLoader from "react-spinners/PulseLoader";
 import { getFirebaseMessageError } from "../../utils/firebase-error";
-import { ModalWindow } from "../ModalWindow/ModalWindow";
 import {
-  ErrorMessage,
-  SignUpButton,
-  SignUpFormStyled,
-  SignUpInput,
-  SignUpLabel,
-  SignUpLink,
-  SignUpText,
+  SignInButton,
+  SignInLink,
+  SignInText,
+  SignInInput,
+  SignInLabel,
+  SignInFormStyled,
 } from "./styles";
+import { ErrorMessage } from "../SignUpForm/styles";
+import { Link } from "react-router-dom";
 
-type SignUpFormValues = {
-  name: string;
+type SignInFormValues = {
   email: string;
   password: string;
 };
 
-export const SignUpForm = () => {
+export const SignInForm = () => {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<SignUpFormValues>({
+  } = useForm<SignInFormValues>({
     mode: "onSubmit",
     reValidateMode: "onSubmit",
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [isOpen, toggleModal] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<null | string>(null);
 
-  const handleModal = () => {
-    toggleModal((isOpen) => !isOpen);
-  };
-
-  const onSubmit: SubmitHandler<SignUpFormValues> = ({ email, password }) => {
+  const onSubmit: SubmitHandler<SignInFormValues> = ({ email, password }) => {
     setIsLoading(true);
     setErrorMessage(null);
     const auth = getAuth();
-    createUserWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // const user = userCredential.user;
-        handleModal();
       })
       .catch((error) => {
         setErrorMessage(getFirebaseMessageError(error.code));
@@ -58,21 +50,21 @@ export const SignUpForm = () => {
       });
   };
   return (
-    <SignUpFormStyled onSubmit={handleSubmit(onSubmit)}>
-      <SignUpLabel>
+    <SignInFormStyled onSubmit={handleSubmit(onSubmit)}>
+      <SignInLabel>
         Email:
-        <SignUpInput
+        <SignInInput
           type="email"
           placeholder="Enter your email"
           {...register("email", {
             required: "Email is required",
           })}
         />
-      </SignUpLabel>
+      </SignInLabel>
       {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
-      <SignUpLabel>
+      <SignInLabel>
         Password:
-        <SignUpInput
+        <SignInInput
           type="password"
           placeholder="Enter your password"
           {...register("password", {
@@ -83,20 +75,19 @@ export const SignUpForm = () => {
             },
           })}
         />
-      </SignUpLabel>
+      </SignInLabel>
       {errors.password && (
         <ErrorMessage>{errors.password.message}</ErrorMessage>
       )}
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       <Link to={ROUTE.RESET_PASSWORD}>Forgot password?</Link>
-      <SignUpButton type="submit">
+      <SignInButton type="submit">
         {isLoading ? <PulseLoader color="#ffffff" size={11} /> : "Sign Up"}
-      </SignUpButton>
-      <SignUpText>
-        I already have an account{" "}
-        <SignUpLink to={ROUTE.SIGN_IN}>Sign In</SignUpLink>
-      </SignUpText>
-      <ModalWindow isOpen={isOpen} handleModal={handleModal} />
-    </SignUpFormStyled>
+      </SignInButton>
+      <SignInText>
+        I dont have an account{" "}
+        <SignInLink to={ROUTE.SIGN_UP}>Sign Up</SignInLink>
+      </SignInText>
+    </SignInFormStyled>
   );
 };
