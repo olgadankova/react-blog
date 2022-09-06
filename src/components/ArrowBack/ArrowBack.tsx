@@ -1,5 +1,5 @@
 import React from "react";
-import { BsArrowLeft } from "react-icons/bs";
+import { AiFillCaretLeft } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { Arrow } from "./styles";
 
@@ -12,7 +12,7 @@ export const ArrowBack = () => {
 
   return (
     <Arrow>
-      <BsArrowLeft onClick={handleArrow} style={{ fontSize: "30px" }} />
+      <AiFillCaretLeft onClick={handleArrow} style={{ fontSize: "30px" }} />
     </Arrow>
   );
 };
