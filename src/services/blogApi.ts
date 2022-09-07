@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IArticle, IBlog, RequestQueryParams } from "../types";
+import { IArticle, IBlog } from "../types";
 
 export enum BlogEndpoint {
   ARTICLE = "articles",
@@ -7,22 +7,19 @@ export enum BlogEndpoint {
 }
 
 class BlogAPI {
-  private readonly BASE_URL = process.env.REACT_APP_BASE_URL_BLOG_API as string;
-  private readonly API = axios.create({
-    baseURL: this.BASE_URL,
+  private readonly API_URL = process.env.REACT_APP_BASE_URL_BLOG_API;
+  private API = axios.create({
+    baseURL: this.API_URL,
   });
-  public getArticles = async ({ limit, page }: RequestQueryParams) => {
-    const { data } = await this.API.get<IArticle[]>(
-      `${BlogEndpoint.ARTICLE}?_limit=${limit}&_start=${page}`
-    );
+
+  public async getArticles(): Promise<IArticle[]> {
+    const { data } = await this.API.get<IArticle[]>(BlogEndpoint.ARTICLE);
     return data;
-  };
-  public getBlogs = async ({ limit, page }: RequestQueryParams) => {
-    const { data } = await this.API.get<IBlog[]>(
-      `${BlogEndpoint.BLOG}?_limit=${limit}&_start=${page}`
-    );
+  }
+  public async getBlogs(): Promise<IBlog[]> {
+    const { data } = await this.API.get<IBlog[]>(BlogEndpoint.BLOG);
     return data;
-  };
+  }
 }
 
 export const blogAPI = new BlogAPI();
