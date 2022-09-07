@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { media, typography } from "../../ui";
 import { COLOR } from "../../ui/color";
+import { StyledButton } from "../Button/styles";
 
 export const SignUpFormStyled = styled.form`
   gap: 10px;
@@ -43,8 +44,9 @@ export const SignUpInput = styled.input`
   }
 `;
 
-export const SignUpButton = styled.button`
+export const SignUpButton = styled(StyledButton)`
   height: 56px;
+  width: 100%;
   border-radius: 3px;
   color: ${COLOR.WHITE};
   background-color: ${COLOR.PURPLE};

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { media, typography } from "../../ui";
 import { COLOR } from "../../ui/color";
+import { StyledButton } from "../Button/styles";
 
 export const SignInFormStyled = styled.form`
   gap: 10px;
@@ -43,20 +44,21 @@ export const SignInInput = styled.input`
   }
 `;
 
-export const SignInButton = styled.button`
+export const SignInButton = styled(StyledButton)`
   height: 56px;
+  width: 100%;
   color: ${COLOR.WHITE};
   background-color: ${COLOR.PURPLE};
   border-radius: 3px;
   cursor: pointer;
   ${media.LAPTOP} {
-    width: 410px;
+    width: 390x;
   }
   ${media.TABLET} {
-    width: 310px;
+    width: 290px;
   }
   ${media.PHONE} {
-    width: 210px;
+    width: 190px;
   }
 `;
 

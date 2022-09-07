@@ -1,5 +1,5 @@
 import React from "react";
 
 export const Account = () => {
-  return <Account />;
+  return <div>Account</div>;
 };
