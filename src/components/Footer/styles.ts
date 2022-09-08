@@ -5,6 +5,7 @@ export const StyledFooter = styled.div`
   display: flex;
   justify-content: space-between;
   max-width: 1120px;
+  padding: 0 60px;
   margin: 0 auto;
   /* border-top: 1px solid ${COLOR.GREY}; */
 `;

@@ -7,4 +7,6 @@ export enum ROUTE {
   NOT_FOUND = "*",
   REGISTRATION = "/registration",
   RESET_PASSWORD = "/reset-password",
+  ARTICLES = "/articles",
+  NEWS = "/news",
 }

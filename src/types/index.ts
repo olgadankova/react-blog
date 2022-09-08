@@ -34,8 +34,3 @@ export interface IEvent {
   id: string | number;
   provider?: string;
 }
-
-export type RequestQueryParams = {
-  limit: string;
-  page: string;
-};
