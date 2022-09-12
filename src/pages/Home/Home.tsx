@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArticleList } from "../../components/ArticleList/ArticleList";
+import { CustomSelect } from "../../components/CustomSelect/CustomSelect";
 import { Title } from "../../components/Title/Title";
 import { blogAPI } from "../../services/blogApi";
 import { ArticleLink, ContainerLink, NewsLink, StyledHome } from "./styles";
@@ -20,6 +21,7 @@ export const Home = () => {
         <NewsLink to="">News</NewsLink>
       </ContainerLink>
       <ArticleList articles={articles} />
+      <CustomSelect />
     </StyledHome>
   );
 };
