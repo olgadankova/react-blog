@@ -4,8 +4,8 @@ import { CustomStyles } from "./styles";
 
 export const CustomSelect = () => {
   const options = [
-    { value: "", label: "Title (A-Z)" },
-    { value: "", label: "Title (Z-A)" },
+    { value: "latest news", label: "latest news" },
+    { value: "old news", label: "old news" },
   ];
 
   return <Select options={options} styles={CustomStyles} />;

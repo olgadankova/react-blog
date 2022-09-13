@@ -9,4 +9,6 @@ export enum ROUTE {
   RESET_PASSWORD = "/reset-password",
   ARTICLES = "/articles",
   NEWS = "/news",
+  NEWS_DETAILS = "/blogs/:id",
+  ATRICLES_DETAILS = "/articles/:id",
 }

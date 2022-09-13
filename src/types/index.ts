@@ -34,3 +34,8 @@ export interface IEvent {
   id: string | number;
   provider?: string;
 }
+
+export type QueryParams = {
+  limit: string;
+  page: string;
+};
