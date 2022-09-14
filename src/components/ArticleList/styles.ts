@@ -8,12 +8,10 @@ export const StyledArticle = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
-
 export const StyledContainer = styled.div`
-  display: grid;
-  width: 100%;
-  height: 100%;
-  place-items: center;
+  margin-top: 50px;
+  ${typography.H2};
+  ${COLOR.RED};
 `;
 
 export const ErrorMassage = styled.p`

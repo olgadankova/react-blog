@@ -22,3 +22,7 @@ export const StyledLogo = styled.img`
   height: 6vh;
   cursor: pointer;
 `;
+
+export const SearchLink = styled(Link)`
+  grid-area: 1 / 8 / 2 / 9;
+`;

@@ -1,47 +1,54 @@
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { ArticleList } from "../../components/ArticleList/ArticleList";
 import { CustomSelect } from "../../components/CustomSelect/CustomSelect";
 import { Title } from "../../components/Title/Title";
 import { ROUTE } from "../../router/routes";
-import { blogAPI } from "../../services/blogApi";
+import { fetchArticles } from "../../store/slices/articleSlice";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import {
   ArticleLink,
-  ButtonContainer,
-  Container,
+  // ButtonContainer,
   ContainerLink,
   NewsLink,
+  Container,
   SortDay,
   SortMonth,
   SortWeek,
   SortYear,
   StyledHome,
 } from "./styles";
+import { NewsList } from "../../components/NewsList/NewsList";
 
 export const Home = () => {
-  const [articles, setArticles] = useState<any[]>([]);
+  const dispatch = useAppDispatch();
+  const { results, isLoading, error } = useAppSelector(({ articles }) => articles);
+  const { page = "" } = useParams();
+  const [limit] = useState("10");
+  const [order, setOrder] = useState<string>("");
 
   useEffect(() => {
-    blogAPI.getArticles().then((data) => {
-      setArticles(data);
-    });
-  }, []);
+    dispatch(fetchArticles({ limit, page, order }));
+  }, [dispatch, limit, page, order]);
+
   return (
     <StyledHome>
-      <Title title="Blog" />
+      <Title title={"Blog"} />
       <ContainerLink>
         <ArticleLink to={ROUTE.ARTICLES}>Articles</ArticleLink>
         <NewsLink to={ROUTE.NEWS}>News</NewsLink>
       </ContainerLink>
       <Container>
-        <ButtonContainer>
-          <SortDay>Day</SortDay>
-          <SortWeek>Week</SortWeek>
-          <SortMonth>Month</SortMonth>
-          <SortYear>Year</SortYear>
-        </ButtonContainer>
-        <CustomSelect />
+        {/* <ButtonContainer> */}
+        <SortDay>Day</SortDay>
+        <SortWeek>Week</SortWeek>
+        <SortMonth>Month</SortMonth>
+        <SortYear>Year</SortYear>
+        {/* </ButtonContainer> */}
+        <CustomSelect onChange={({ value }: { value: string }) => setOrder(value)} />
       </Container>
-      <ArticleList articles={articles} isLoading={false} errorMessage={null} />
+      <ArticleList articles={results} isLoading={isLoading} errorMessage={error} />
+      <NewsList blogs={results} isLoading={isLoading} errorMessage={error} />
     </StyledHome>
   );
 };

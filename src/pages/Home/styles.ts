@@ -3,11 +3,11 @@ import styled from "styled-components";
 import { COLOR, media, typography } from "../../ui";
 
 export const StyledHome = styled.div`
-  margin: auto;
-  ${media.LAPTOP} {
+  margin: 0 auto;
+  ${media.TABLET} {
     max-width: 600px;
   }
-  ${media.TABLET} {
+  ${media.PHONE} {
     max-width: 290px;
   }
 `;
@@ -15,7 +15,7 @@ export const StyledHome = styled.div`
 export const ContainerLink = styled.div`
   display: flex;
   gap: 40px;
-  padding: 10px;
+  padding: 7px;
 `;
 
 export const ArticleLink = styled(Link)`
@@ -29,7 +29,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 890px;
+  max-width: 980px;
   ${media.LAPTOP} {
     max-width: 588px;
   }
@@ -51,7 +51,9 @@ export const SortButton = styled.button`
     background-color: ${COLOR.VIOLET};
   }
 `;
-export const ButtonContainer = styled.div``;
+export const ButtonContainer = styled.div`
+  margin: 100px;
+`;
 
 export const SortDay = styled(SortButton)``;
 
@@ -62,3 +64,9 @@ export const SortMonth = styled(SortButton)``;
 export const SortYear = styled(SortButton)``;
 
 export const NewsLink = styled(ArticleLink)``;
+
+export const PaginationBtn = styled.button`
+  border: none;
+  background: transparent;
+  color: ${COLOR.MEDIUM_GREY};
+`;

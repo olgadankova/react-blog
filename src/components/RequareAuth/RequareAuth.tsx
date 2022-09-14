@@ -1,10 +1,13 @@
-import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "../../hooks/useAuth";
+import DotLoader from "react-spinners/DotLoader";
 import { ROUTE } from "../../router/routes";
+import { useAppSelector } from "../../store/hooks";
 
 export const RequareAuth = () => {
-  const { isAuth } = useAuth();
-
-  return isAuth ? <Outlet /> : <Navigate to={ROUTE.REGISTRATION} />;
+  const user = useAppSelector((state) => state.users.result);
+  const isLoading = useAppSelector((state) => state.users.isLoading);
+  if (isLoading) {
+    return <DotLoader />;
+  }
+  return user ? <Outlet /> : <Navigate to={ROUTE.SIGN_IN} />;
 };

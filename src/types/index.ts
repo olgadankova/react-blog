@@ -1,3 +1,5 @@
+import { ChangeEventHandler } from "react";
+
 export interface IArticle {
   id: number;
   title: string;
@@ -38,4 +40,15 @@ export interface IEvent {
 export type QueryParams = {
   limit: string;
   page: string;
+  order: string;
+  searchParams?: string;
 };
+export interface UserData {
+  displayName: string | null;
+  email: string | null;
+}
+
+export interface ISearch {
+  value: string;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+}

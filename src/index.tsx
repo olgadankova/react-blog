@@ -4,15 +4,17 @@ import { BrowserRouter } from "react-router-dom";
 import { App } from "./App";
 import { GlobalStyle } from "./ui/GlobalStyle";
 import "./firebase";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
-  <>
-    <GlobalStyle />
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </>
+  <React.StrictMode>
+    <Provider store={store}>
+      <GlobalStyle />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </React.StrictMode>,
 );

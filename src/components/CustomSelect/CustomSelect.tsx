@@ -2,11 +2,11 @@ import React from "react";
 import Select from "react-select";
 import { CustomStyles } from "./styles";
 
-export const CustomSelect = () => {
+export const CustomSelect = ({ onChange }: { onChange: any }) => {
   const options = [
-    { value: "latest news", label: "latest news" },
-    { value: "old news", label: "old news" },
+    { value: "publishedAt", label: "Published At" },
+    { value: "title", label: "Title" },
   ];
 
-  return <Select options={options} styles={CustomStyles} />;
+  return <Select options={options} styles={CustomStyles} onChange={onChange} />;
 };

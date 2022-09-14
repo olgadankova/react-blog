@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface UserState {
+  result: any;
+  isLoading: any;
   email: string | null;
   userDate: string | null;
   id: string | null;
@@ -10,6 +12,8 @@ const initialState: UserState = {
   email: null,
   userDate: null,
   id: null,
+  result: undefined,
+  isLoading: undefined,
 };
 
 const userSlice = createSlice({
