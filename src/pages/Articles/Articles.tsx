@@ -12,7 +12,7 @@ export const Articles = () => {
   const dispatch = useAppDispatch();
   const { results, isLoading, error } = useAppSelector(({ articles }) => articles);
   const { page = "" } = useParams();
-  const [limit] = useState("9");
+  const [limit, setLimit] = useState("9");
   const navigate = useNavigate();
 
   const handleNextPage = () => {
@@ -38,7 +38,7 @@ export const Articles = () => {
         <PaginationBtn onClick={handlePrevPage} className={`${page === "1" && "disabled"}`}>
           ← Prev
         </PaginationBtn>
-        <PaginationBtn onClick={handleNextPage} className={`${page === "804" && "disabled"}`}>
+        <PaginationBtn onClick={handleNextPage} className={`${page === "" && "disabled"}`}>
           Next →
         </PaginationBtn>
       </PaginationContainer>

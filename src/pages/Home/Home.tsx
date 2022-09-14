@@ -8,7 +8,6 @@ import { fetchArticles } from "../../store/slices/articleSlice";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import {
   ArticleLink,
-  // ButtonContainer,
   ContainerLink,
   NewsLink,
   Container,
@@ -17,6 +16,7 @@ import {
   SortWeek,
   SortYear,
   StyledHome,
+  PaginationBtn,
 } from "./styles";
 import { NewsList } from "../../components/NewsList/NewsList";
 
@@ -24,7 +24,7 @@ export const Home = () => {
   const dispatch = useAppDispatch();
   const { results, isLoading, error } = useAppSelector(({ articles }) => articles);
   const { page = "" } = useParams();
-  const [limit] = useState("10");
+  const [limit] = useState("50");
   const [order, setOrder] = useState<string>("");
 
   useEffect(() => {
@@ -39,16 +39,15 @@ export const Home = () => {
         <NewsLink to={ROUTE.NEWS}>News</NewsLink>
       </ContainerLink>
       <Container>
-        {/* <ButtonContainer> */}
         <SortDay>Day</SortDay>
         <SortWeek>Week</SortWeek>
         <SortMonth>Month</SortMonth>
         <SortYear>Year</SortYear>
-        {/* </ButtonContainer> */}
         <CustomSelect onChange={({ value }: { value: string }) => setOrder(value)} />
       </Container>
       <ArticleList articles={results} isLoading={isLoading} errorMessage={error} />
       <NewsList blogs={results} isLoading={isLoading} errorMessage={error} />
+      <PaginationBtn />
     </StyledHome>
   );
 };

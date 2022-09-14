@@ -22,18 +22,18 @@ class BlogAPI {
     );
     return data;
   };
-  public getSearchArticles = async ({ limit, page, searchParams }: QueryParams) => {
-    const { data } = await this.API.get<IArticle[]>(
-      `${BlogEndpoint.SEARCH}?_limit=${limit}&_start=${page}&_title_contains=${searchParams}`,
-    );
-    return data;
-  };
   public getBlogs = async ({ limit, page }: QueryParams) => {
     const { data } = await this.API.get<IBlog[]>(
       `${BlogEndpoint.BLOG}?_limit=${limit}&_start=${page}`,
     );
     return data;
   };
+  // public getSearchArticles = async ({ limit, page, searchParams }: QueryParams) => {
+  //   const { data } = await this.API.get<IArticle[]>(
+  //     `${BlogEndpoint.SEARCH}?_limit=${limit}&_start=${page}&_title_contains=${searchParams}`,
+  //   );
+  //   return data;
+  // };
 }
 
 export const blogAPI = new BlogAPI();

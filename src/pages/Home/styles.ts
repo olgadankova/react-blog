@@ -43,6 +43,7 @@ export const SortButton = styled.button`
   color: ${COLOR.PURPLE};
   font-size: ${typography.S1};
   background-color: ${COLOR.LIGHT_GREY};
+  cursor: pointer;
   :hover {
     color: ${COLOR.WHITE};
     background-color: ${COLOR.VIOLET};

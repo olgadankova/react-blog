@@ -1,7 +1,7 @@
 import { ROUTE } from "../../router/routes";
 import { createPath } from "../../router/utils";
 import { IArticle } from "../../types";
-import { Image, Container, ArticleLink, Description } from "./styles";
+import { Image, Container, ArticleLink, Description, Title } from "./styles";
 
 interface IProps {
   article: IArticle;
@@ -15,8 +15,8 @@ export const ArticleItem = ({ article }: IProps) => {
       <Container>
         <Image src={article.imageUrl} alt="article" />
       </Container>
-      <h5>{date}</h5>
-      <Description>{article.summary}</Description>
+      <Title>{date}</Title>
+      <Description>{article.title}</Description>
     </ArticleLink>
   );
 };

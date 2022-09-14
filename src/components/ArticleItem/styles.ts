@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const StyledArticle = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 300px;
   height: 300px;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
 `;
 
 export const Image = styled.img`
@@ -26,13 +26,13 @@ export const ArticleLink = styled(Link)`
   width: 300px;
   height: 340px;
   padding: 10px;
+  text-decoration: none;
 `;
 
 export const Title = styled.p``;
 
 export const Description = styled.p`
   overflow: hidden;
-  text-overflow: ellipsis;
 `;
 
 export const Container = styled.div`

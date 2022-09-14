@@ -6,6 +6,7 @@ export const CustomStyles = {
     height: "50px",
     background: COLOR.WHITE,
     borderRadius: "4px",
+    cursor: "pointer",
   }),
 
   indicatorSeparator: () => ({
